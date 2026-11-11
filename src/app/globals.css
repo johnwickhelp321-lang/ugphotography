@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #121214;
+  --ink-soft: #1c1b1d;
+  --paper: #f2ede4;
+  --paper-text: #1a1816;
+  --muted-dark: rgba(255, 255, 255, 0.62);
+  --muted-light: rgba(26, 24, 22, 0.60);
+  --accent: #e8b86a;
+}
+
+/* Base resets & typography */
+html {
+  background-color: var(--ink);
+  color: #ffffff;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--ink);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.055;
+  background-image: url("/noise.svg");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* Custom Cursor */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Editorial Headline Helpers */
+.headline-giant {
+  font-size: clamp(3.2rem, 10vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+.headline-hero {
+  font-size: clamp(4.5rem, 15vw, 18rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+/* Hairline Dividers */
+.hairline-dark {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.hairline-light {
+  border-color: rgba(26, 24, 22, 0.12);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .film-grain {
+    display: none;
+  }
+}

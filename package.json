@@ -1,0 +1,41 @@
+{
+  "name": "gillprodection",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sync:images": "tsx scripts/sync-images.ts",
+    "predev": "tsx scripts/sync-images.ts",
+    "dev": "next dev",
+    "prebuild": "tsx scripts/sync-images.ts",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src scripts",
+    "import:instagram": "tsx scripts/import-instagram.ts"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/three": "^0.187.0",
+    "canvas-confetti": "^1.9.4",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27",
+    "lucide-react": "^1.70.0",
+    "next": "16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sharp": "^0.35.5",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}
